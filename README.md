@@ -1,26 +1,49 @@
-# AirMIDI: Touchless Gesture-Based Audio Engine
+AirMIDI: Touchless Gesture Audio Engine
 
-Touchless virtual MIDI instrument and audio engine built with Python, MediaPipe, and OpenCV. Play notes and sculpt sound in mid-air using simple hand waves, pointing, and finger gestures. Features zero-touch, real-time control over spatial panning, Hi-Fi/Lo-Fi filtering, and dynamic audio modulation.
+A Python-based virtual MIDI instrument that uses MediaPipe and OpenCV to translate hand gestures into real-time audio modulation. Built for zero-latency inference on Apple Silicon, it allows users to play notes and sculpt sound in mid-air without physical hardware.
 
-## Core Features
-* **Zero-Latency Inference:** Optimized specifically for Apple Silicon (M1/M2) using MediaPipe Lite models to maintain >30 FPS.
-* **Spatial Filtering:** Implements Exponential Moving Average (EMA) and deadband gating to eliminate landmark jitter during static hand holds.
-* **Multi-Parameter Modulation:** Map complex 3D hand geometries to standard MIDI CC parameters for synth manipulation in any DAW (Ableton, Logic Pro, FL Studio).
+Features & Gesture Controls
 
-## Gesture Mapping & Control Scheme
-The system translates 3D spatial coordinates into continuous MIDI signals. 
+This application maps 3D hand coordinates to standard continuous MIDI CC parameters:
 
-| Physical Gesture | Spatial Axis / Metric | Musical Parameter / Action |
-| :--- | :--- | :--- |
-| **Pinch** (Thumb + Index) | Euclidean Distance ($d$) | Note On / Off (Trigger) |
-| **Raise** (Vertical Move) | Y-Axis Translation | Expression / Volume |
-| **Slide** (Horizontal Move) | X-Axis Translation | Timbre (Hi-Fi / Lo-Fi Filter Cutoff) |
-| **Glide** (Z-Axis Depth) | Z-Axis Translation | Pitchbend |
-| **Tilt** (Wrist Rotation) | Palm Angle / Roll | Spatial Pan (Left / Right) |
+Pinch (Thumb + Index): Note On / Off (Trigger)
 
-## Installation (macOS / Apple Silicon)
+Slide (Horizontal X-Axis): Timbre (Hi-Fi / Lo-Fi Filter Cutoff)
 
-**1. Create a Virtual Environment (Recommended)**
-```bash
-python3 -m venv venv
-source venv/bin/activate
+Raise (Vertical Y-Axis): Expression / Volume
+
+Glide (Depth Z-Axis): Pitchbend
+
+Tilt (Wrist Rotation): Spatial Panning (Left / Right)
+
+Setup Instructions
+
+To run this project on your local machine, install the required Python dependencies:
+
+pip install opencv-python mediapipe mido python-rtmidi numpy
+
+
+macOS Users: You must enable the native virtual MIDI port to route gestures to your DAW. Open the Audio MIDI Setup app, click Window > Show MIDI Studio in the top menu bar, double-click the IAC Driver, and check Device is online.
+
+Usage
+
+Run the main script from your terminal. Ensure your hands are clearly visible to the webcam in a well-lit environment.
+
+python main.py
+
+
+Press q to close the camera feed and quit the application.
+
+Academic Citation
+
+This repository is the official codebase for the preprint paper: "Low-Latency Hand-Gesture Recognition for Real-Time Virtual MIDI Control Using MediaPipe and OpenCV on Consumer Apple Silicon".
+
+If you use this code in your research, please cite:
+
+@article{keshari2026airmidi,
+  title={Low-Latency Hand-Gesture Recognition for Real-Time Virtual MIDI Control Using MediaPipe and OpenCV on Consumer Apple Silicon},
+  author={Keshari, Shaurya},
+  journal={OSF Preprints},
+  year={2026},
+  doi={[YOUR-OSF-DOI-HERE]}
+}
