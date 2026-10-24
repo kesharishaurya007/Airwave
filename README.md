@@ -45,5 +45,5 @@ If you use this code in your research, please cite:
   author={Keshari, Shaurya},
   journal={OSF Preprints},
   year={2026},
-  doi={[YOUR-OSF-DOI-HERE]}
+  doi={https://doi.org/10.17605/OSF.IO/FTMY7}
 }
