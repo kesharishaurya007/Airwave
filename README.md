@@ -1,6 +1,7 @@
 # AirMIDI: Touchless Gesture Audio Engine
 
 [![DOI](https://img.shields.io/badge/DOI-10.17605%2FOSF.IO%2FFTMY7-blue)](https://doi.org/10.17605/OSF.IO/FTMY7)
+[![Zenodo Archive](https://img.shields.io/badge/Zenodo-Record_23620311-016292.svg)](https://zenodo.org/records/23620311)
 
 A Python-based virtual MIDI instrument that uses MediaPipe and OpenCV to translate hand gestures into real-time audio modulation. Built for zero-latency inference on Apple Silicon, it allows users to play notes and sculpt sound in mid-air without physical hardware.
 
